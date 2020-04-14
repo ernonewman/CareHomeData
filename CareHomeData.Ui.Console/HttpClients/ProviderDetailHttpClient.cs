@@ -5,16 +5,19 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 using CareHomeData.Ui.Console.Models;
+using Microsoft.Extensions.Logging;
 
 namespace CareHomeData.Ui.Console.HttpClients
 {
     public class ProviderDetailHttpClient
     {
-        private HttpClient _client;
+        private readonly HttpClient _client;
+        private readonly ILogger<ProviderDetailHttpClient> _logger;
 
-        public ProviderDetailHttpClient(HttpClient client)
+        public ProviderDetailHttpClient(HttpClient client, ILogger<ProviderDetailHttpClient> logger)
         {
             _client = client;
+            _logger = logger;
         }
 
         public async Task<ProviderDetail> GetContentFromClient(string providerId)
@@ -33,6 +36,7 @@ namespace CareHomeData.Ui.Console.HttpClients
             }
             catch (HttpRequestException ex)
             {
+                _logger.LogError(ex, $"An error occurred while trying to retrieve Provider details for id: {providerId}");
                 throw;
             }
         }
