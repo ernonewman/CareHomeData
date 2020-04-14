@@ -2,6 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CareHomeData.Ui.Console.HttpClients;
+using CareHomeData.Ui.Console.Interfaces.Services;
+using CareHomeData.Ui.Console.Services;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Serilog;
@@ -38,6 +41,10 @@ namespace CareHomeData.Ui.Console
                 .ConfigureServices((hostContext, services) =>
                 {
                     services.AddHostedService<Worker>();
+                    services.AddTransient<IProvidersSummaryServices, ProviderSummaryServices>();
+                    services.AddTransient<IProviderDetailsServices, ProviderDetailsServices>();
+                    services.AddHttpClient<ProviderSummaryHttpClient>();
+                    services.AddHttpClient<ProviderDetailHttpClient>();
                 })
                 .UseSerilog();
     }
