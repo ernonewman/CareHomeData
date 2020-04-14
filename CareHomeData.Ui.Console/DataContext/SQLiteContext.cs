@@ -17,6 +17,7 @@ namespace CQCViewer.Shared.DataContext
         {
             _dbLocation = dbLocation;
         }
+
         public DbSet<ProviderDetail> ProviderDetails { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
