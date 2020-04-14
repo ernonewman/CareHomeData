@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
-using CQCViewer.Shared.Models;
+using CareHomeData.Ui.Console.Models;
 
-namespace CQCViewer.Shared.Interfaces.Services
+namespace CareHomeData.Ui.Console.Interfaces.Services
 {
     public interface IProviderDetailsServices
     {

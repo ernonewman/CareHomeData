@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
-namespace CQCViewer.Shared.Models
+namespace CareHomeData.Ui.Console.Models
 {
     public class ProviderDetail
     {

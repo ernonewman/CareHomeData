@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
-using CQCViewer.Shared.Models;
+using CareHomeData.Ui.Console.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace CQCViewer.Shared.DataContext
+namespace CareHomeData.Ui.Console.DataContext
 {
     public class SQLiteContext : DbContext
     {

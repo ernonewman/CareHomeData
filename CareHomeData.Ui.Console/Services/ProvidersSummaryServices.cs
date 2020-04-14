@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
-using CQCViewer.Shared.HttpClients;
-using CQCViewer.Shared.Interfaces.Services;
-using CQCViewer.Shared.Models;
+using CareHomeData.Ui.Console.HttpClients;
+using CareHomeData.Ui.Console.Interfaces.Services;
+using CareHomeData.Ui.Console.Models;
 
-namespace CQCViewer.Shared.Services
+namespace CareHomeData.Ui.Console.Services
 {
     public class ProviderSummaryServices : IProvidersSummaryServices
     {

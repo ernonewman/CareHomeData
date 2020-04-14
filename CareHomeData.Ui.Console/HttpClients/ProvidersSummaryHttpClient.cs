@@ -4,9 +4,9 @@ using System.Net.Http;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
-using CQCViewer.Shared.Models;
+using CareHomeData.Ui.Console.Models;
 
-namespace CQCViewer.Shared.HttpClients
+namespace CareHomeData.Ui.Console.HttpClients
 {
     public class ProviderSummaryHttpClient
     {
