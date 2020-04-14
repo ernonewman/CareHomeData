@@ -19,7 +19,7 @@ namespace CareHomeData.Ui.Console
         private readonly IProviderDetailsServices _providerDetailsServices;
         private readonly IProvidersSummaryServices _providersSummaryServices;
 
-        private bool exitGracefully = false;
+        private bool _exitGracefully = false;
 
         public Worker(
             ILogger<Worker> logger,
@@ -33,7 +33,7 @@ namespace CareHomeData.Ui.Console
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
-            while (!stoppingToken.IsCancellationRequested && !exitGracefully)
+            while (!stoppingToken.IsCancellationRequested && !_exitGracefully)
             {
                 _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
 
@@ -43,7 +43,7 @@ namespace CareHomeData.Ui.Console
 
                 await Task.Delay(1000, stoppingToken);
 
-                exitGracefully = true;
+                _exitGracefully = true;
             }
         }
 

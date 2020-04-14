@@ -7,7 +7,7 @@ namespace CareHomeData.Ui.Console.DataContext
 {
     public class SQLiteContext : DbContext
     {
-        string _dbLocation;
+        private readonly string _dbLocation;
 
         public SQLiteContext()
         {
