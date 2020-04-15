@@ -71,7 +71,7 @@ namespace CareHomeData.Ui.Console
 
                             var apiDetail = await _providerDetailsServices.GetProviderDetails(detail.providerId);
 
-                            await UpdateIndividualDetails(detail, apiDetail, db, totalRecordsToCheck % 50 == 0);
+                            await UpdateIndividualDetails(detail, apiDetail, db, i % 50 == 0);
                         }
 
                         _logger.LogInformation($"Saving batched changes to database.");
@@ -201,12 +201,12 @@ namespace CareHomeData.Ui.Console
 
                 await GetDetailsAndAddToDatabase(providersSummary);
 
-                // while (providersSummary.nextPageUri != null)
-                // {
-                //     providersSummary = await myService.GetProviderSummary(providersSummary.nextPageUri);
+                while (providersSummary.nextPageUri != null)
+                {
+                    providersSummary = await _providersSummaryServices.GetProviderSummary(providersSummary.nextPageUri);
 
-                //     GetDetailsAndAddToDatabase(providersSummary, db);
-                // }
+                    GetDetailsAndAddToDatabase(providersSummary);
+                }
             }
             catch (Exception ex)
             {
